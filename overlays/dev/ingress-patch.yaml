@@ -20,6 +20,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: gitops.lab.local 
+            name: gitops-demo-service
             port:
               number: 8080
