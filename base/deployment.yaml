@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gitops-demo-app  # Base deployment name
+  labels:
+    app: gitops-demo
+spec:
+  selector:
+    matchLabels:
+      app: gitops-demo
+  template:
+    metadata:
+      labels:
+        app: gitops-demo
+    spec:
+      containers:
+      - name: gitops-demo-container  # Base container name
+        ports:
+        - containerPort: 5000
+        env:
+        - name: SECRET
+          value: "Hello from Base Configuration!"
+

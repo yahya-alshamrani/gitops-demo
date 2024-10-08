@@ -1,0 +1,7 @@
+resources:
+  - ../../base
+  - secret.yaml  # Include pull secret
+
+patches:
+  - path: deployment-patch.yaml
+  - path: ingress-patch.yaml
