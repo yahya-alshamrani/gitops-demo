@@ -10,16 +10,16 @@ metadata:
       more_set_headers "X-Environment: Development";
 spec:
   tls:
-    - hosts: ['gitops-demo.lab.local']
+    - hosts: ['gitops.lab.local']
       secretName: gitops-demo-tls
   rules:
-  - host: gitops-demo.lab.local  # Dev-specific domain
+  - host: gitops.lab.local  # Dev-specific domain
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: gitops-demo.lab.local 
+            name: gitops.lab.local 
             port:
               number: 8080
