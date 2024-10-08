@@ -7,7 +7,7 @@ spec:
     app: gitops-demo  # Match the label in the deployment
   ports:
     - protocol: TCP
-      port: 80
+      port: 8080
       targetPort: 5000
   type: ClusterIP
 

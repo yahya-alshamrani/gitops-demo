@@ -1,22 +1,25 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: gitops-demo-ingress  # Ensure it matches the base ingress
+  name: gitops-demo-ingress  
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"  # Disable SSL redirect for dev
+    cert-manager.io/cluster-issuer: ca-issuer
+    nginx.ingress.kubernetes.io/backend-protocol: HTTP
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/configuration-snippet: |
       more_set_headers "X-Environment: Development";
 spec:
+  tls:
+    - hosts: ['gitops-demo.lab.local']
+      secretName: gitops-demo-tls
   rules:
-  - host: dev.flask-app.example.com  # Dev-specific domain
+  - host: gitops-demo.lab.local  # Dev-specific domain
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: gitops-demo-service
+            name: gitops-demo.lab.local 
             port:
-              number: 80
-
+              number: 8080
