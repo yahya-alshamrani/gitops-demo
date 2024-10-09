@@ -20,8 +20,3 @@ spec:
         env:
         - name: SECRET
           value: "Hello from Base Configuration!"
-        - name: IMAGE_VERSION
-          valueFrom:
-            fieldRef:
-              fieldPath: spec.containers[0].image
-
