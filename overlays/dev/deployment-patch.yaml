@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: gitops-demo-container  # Matches the base container name
-        image: docker.io/yahyaalshamrani/gitops-demo-app:v0.1.0
+        image: docker.io/yahyaalshamrani/gitops-demo-app:v0.1.2
