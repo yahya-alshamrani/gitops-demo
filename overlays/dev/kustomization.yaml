@@ -8,3 +8,7 @@ patches:
     target:
       kind: Deployment
       name: gitops-demo-app
+  - path: secret-message.yaml
+    target:
+      kind: Deployment
+      name: gitops-demo-app
